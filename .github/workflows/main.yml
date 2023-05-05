@@ -20,4 +20,4 @@ jobs:
            password: ${{ secrets.ACR_PASSWORD }}
       - run: |
           docker build . -t ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
-          docker push ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ gi
+          docker push ${{ secrets.ACR_ENDPOINT }}/knowledgefactory:${{ github.sha }}
