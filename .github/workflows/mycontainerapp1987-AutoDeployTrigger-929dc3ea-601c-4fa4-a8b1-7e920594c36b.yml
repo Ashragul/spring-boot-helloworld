@@ -31,8 +31,8 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }} 
           registryUrl: hub.docker.com
-          registryUsername: ${{ secrets.MYCONTAINERAPP1987_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.MYCONTAINERAPP1987_REGISTRY_PASSWORD }}
+          registryUsername: ${{ secrets.ACR_USERNAME }}
+          registryPassword: ${{ secrets.ACR_PASSWORD }}
           containerAppName: mycontainerapp1987
           resourceGroup: myrg1987
           imageToBuild: hub.docker.com/mycontainerapp1987:${{ github.sha }}
