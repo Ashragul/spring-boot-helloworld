@@ -23,4 +23,4 @@ jobs:
     - name: Build Docker Image
       run: docker build . --file Dockerfile --tag knowledgefactory/spring-boot-image:$(date +%s)
     - name: Docker Push
-      run: docker push ${{ secrets.ACR_ENDPOINT }}/knowledgefactory/spring-boot-image:${{ github.sha }}
+      run: docker push ${{ secrets.ACR_ENDPOINT }}/knowledgefactory/spring-boot-image
