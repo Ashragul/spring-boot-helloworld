@@ -23,4 +23,4 @@ jobs:
     - name: Build Docker Image
       run: docker build . --file Dockerfile --tag ashrafd0cker/knowledgefactory:$(date +%s)
     - name: Docker Push
-      run: docker push ${{ secrets.ACR_ENDPOINT }}/ashrafd0cker/knowledgefactory
+      run: docker push ashrafd0cker/knowledgefactory
