@@ -18,9 +18,9 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.ACR_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.ACR_PASSWORD}}
-      run: 
+      run: |
          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - name: Build DockeR Image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Build Docker Image
+      run: docker build . --file Dockerfile --tag knowledgefactory/spring-boot-image:$(date +%s)
     - name: Docker Push
-      run: docker push $DOCKER_USER/ashrafd0cker/knowledgefactory
+      run: docker push $DOCKER_USER/knowledgefactory/spring-boot-image
