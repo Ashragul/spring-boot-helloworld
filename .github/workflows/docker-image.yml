@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: docker login
+      env:
+        DOCKER_USER: {{secrets.ACR_USERNAME}}
+        DOCKER_PASSWORD: {{secrets.ACR_PASSOWRD}}
+      run: 
+         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build DockeR Image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Docker Push
+      run: docker push $DOCKER_USER/ashrafd0cker/knowledgefactory
